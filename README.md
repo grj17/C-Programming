@@ -1,2 +1,2 @@
 # C-Programming
-C-Programming examples
+Solution of programming problems from various portals.
