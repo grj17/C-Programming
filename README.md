@@ -4,5 +4,6 @@ Directory structure
 -------------------
 ./source
         C Programs, example code, projects, and plugin modules.
+        
 ./docs
         Technical literature, manuals, e-books etc.
