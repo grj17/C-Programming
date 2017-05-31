@@ -3,6 +3,6 @@ This repository includes C-Programming resources example code, programs, project
 Directory structure
 -------------------
 ./source
-        C Programs, example code, projects, and plugin modules
+        C Programs, example code, projects, and plugin modules.
 ./docs
         Technical literature, manuals, e-books etc.
