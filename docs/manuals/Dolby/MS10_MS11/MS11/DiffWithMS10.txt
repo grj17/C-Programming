@@ -1,0 +1,10 @@
+1)	Additional desirable feature for AD decoder implementation include having separate VCR output and providing an output for headphones, should the AD user wish to listen in the company of others who do not wish to hear the description.
+
+2)	One key application is the ability to apply Dolby Volume to a decoded 5.1 Dolby Digital Plus input stream and then re-encode the stream to Dolby Digital for output to a home theater.
+
+3)	The dual technology package results in a lower overall cost than separate licenses for existing Dolby Digital Plus, Dolby Pulse, Dolby Digital, and transcoder options.
+
+4)	Multi channel PCM with or without AD would be possible with MS11 where as with MS10, only 2 ch PCM out is recommended.
+
+5)	Compressed with or without AD would be possible due to encoder after mixer in MS11.
+Regards,

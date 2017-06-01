@@ -1,0 +1,310 @@
+From: "Saved by Windows Internet Explorer 8"
+Subject: Modifying U-Boot
+Date: Thu, 22 Mar 2012 10:34:20 +0530
+MIME-Version: 1.0
+Content-Type: multipart/related;
+	type="text/html";
+	boundary="----=_NextPart_000_0005_01CD0817.574804A0"
+X-MimeOLE: Produced By Microsoft MimeOLE V6.1.7601.17574
+
+This is a multi-part message in MIME format.
+
+------=_NextPart_000_0005_01CD0817.574804A0
+Content-Type: text/html;
+	charset="utf-8"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.stlinux.com/book/export/html/126
+
+=EF=BB=BF<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" =
+"http://www.w3c.org/TR/1999/REC-html401-19991224/loose.dtd">
+<HTML lang=3Den xml:lang=3D"en" =
+xmlns=3D"http://www.w3.org/1999/xhtml"><HEAD><TITLE>Modifying =
+U-Boot</TITLE>
+<META content=3D"text/html; charset=3Dutf-8" =
+http-equiv=3DContent-Type><LINK=20
+rel=3Dstylesheet type=3Dtext/css =
+href=3D"http://www.stlinux.com/misc/print.css">
+<META name=3DGENERATOR content=3D"MSHTML 8.00.7601.17744"></HEAD>
+<BODY>
+<DIV class=3Dsection-1>
+<DIV id=3Dnode-126 class=3Dsection-2>
+<H1 class=3Dbook-heading>Modifying U-Boot</H1>
+<H3>Modifying U-Boot</H3>
+<P>This section gives a brief overview of the structure of the U-Boot =
+code.=20
+<H4>Configuration files</H4>
+<P>The important configuration information for U-Boot is defined in the =
+file:=20
+<DIV class=3Dgeshifilter><PRE style=3D"FONT-FAMILY: monospace" =
+class=3D"console =
+geshifilter-console">include/configs/&lt;board&gt;.<SPAN style=3D"COLOR: =
+#202020">h</SPAN></PRE></DIV>
+<P>For example, the Espresso board default configuration file is:=20
+<DIV class=3Dgeshifilter><PRE style=3D"FONT-FAMILY: monospace" =
+class=3D"console geshifilter-console">include/configs/espresso.<SPAN =
+style=3D"COLOR: #202020">h</SPAN></PRE></DIV>
+<P>This file defines such things as the memory layout, default baud =
+rate, the=20
+U-Boot features that are included in the build, and so forth. Refer to =
+the=20
+README file for a description of the options defined in the =
+configuration file.=20
+<H4>Memory Map</H4>
+<P>The following table shows the default locations in Flash and RAM used =
+by=20
+U-Boot: </P>
+<TABLE style=3D"TEXT-ALIGN: left; WIDTH: 100%" border=3D1 =
+cellSpacing=3D2=20
+cellPadding=3D2>
+  <THEAD>
+  <TR>
+    <TH>Board</TH>
+    <TH style=3D"TEXT-ALIGN: center" rowSpan=3D1 =
+colSpan=3D2>FLASH<SUP>1</SUP></TH>
+    <TH style=3D"TEXT-ALIGN: center" rowSpan=3D1 =
+colSpan=3D2>RAM<SUP>2</SUP></TH></TR>
+  <TR>
+    <TH></TH>
+    <TH>U-Boot code</TH>
+    <TH>U-Boot env</TH>
+    <TH>memory start</TH>
+    <TH>U-Boot&nbsp;base</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TD style=3D"VERTICAL-ALIGN: top">espresso <BR></TD>
+    <TD style=3D"FONT-FAMILY: monospace">0xA0000000-0xA003FFFF</TD>
+    <TD style=3D"FONT-FAMILY: monospace">0xA0040000-0xA003FFFF</TD>
+    <TD style=3D"FONT-FAMILY: monospace; VERTICAL-ALIGN: =
+top">0x84000000<BR></TD>
+    <TD style=3D"FONT-FAMILY: monospace; VERTICAL-ALIGN: =
+top">0x85F00000</TD></TR>
+  <TR>
+    <TD>sti5528eval</TD>
+    <TD style=3D"FONT-FAMILY: monospace">0xA0000000-0xA003FFFF</TD>
+    <TD style=3D"FONT-FAMILY: monospace">0xA0040000-0xA003FFFF</TD>
+    <TD style=3D"FONT-FAMILY: monospace">0x84000000</TD>
+    <TD style=3D"FONT-FAMILY: monospace">0x85F00000</TD></TR>
+  <TR>
+    <TD>stb7100mboard</TD>
+    <TD style=3D"FONT-FAMILY: monospace">0xA0000000-0xA001FFFF</TD>
+    <TD style=3D"FONT-FAMILY: monospace">0xA0020000-0xA002FFFF</TD>
+    <TD style=3D"FONT-FAMILY: monospace">0x84000000</TD>
+    <TD style=3D"FONT-FAMILY: monospace">0x85F00000</TD></TR>
+  <TR>
+    <TD>stb7100ref_*</TD>
+    <TD style=3D"FONT-FAMILY: monospace">0xA0000000-0xA001FFFF</TD>
+    <TD style=3D"FONT-FAMILY: monospace">0xA0020000-0xA002FFFF</TD>
+    <TD style=3D"FONT-FAMILY: monospace">0x84000000</TD>
+    <TD style=3D"FONT-FAMILY: monospace">0x85F00000</TD></TR>
+  <TR>
+    <TD>stb7109eref</TD>
+    <TD style=3D"FONT-FAMILY: monospace">0xA0000000-0xA001FFFF</TD>
+    <TD style=3D"FONT-FAMILY: monospace">0xA0020000-0xA002FFFF</TD>
+    <TD style=3D"FONT-FAMILY: monospace">0x84000000</TD>
+    <TD style=3D"FONT-FAMILY: monospace">0x85F00000</TD></TR>
+  <TR>
+    <TD>sti5301mb390</TD>
+    <TD style=3D"FONT-FAMILY: monospace">0x7FFE0000-0x7FFFFFFF</TD>
+    <TD style=3D"FONT-FAMILY: monospace">0x7F800000-0x7F80FFFF</TD>
+    <TD style=3D"FONT-FAMILY: monospace">0xC0000000</TD>
+    <TD style=3D"FONT-FAMILY: monospace">0xC1F00000</TD></TR>
+  <TR>
+    <TD>sti5301mb424</TD>
+    <TD style=3D"FONT-FAMILY: monospace">0x7FFC0000-0x7FFFFFFF</TD>
+    <TD style=3D"FONT-FAMILY: monospace">0x7F800000-0x7F80FFFF</TD>
+    <TD style=3D"FONT-FAMILY: monospace">0xC0000000</TD>
+    <TD style=3D"FONT-FAMILY: monospace">0xC1F00000</TD></TR>
+  <TR>
+    <TD>traviata</TD>
+    <TD style=3D"FONT-FAMILY: monospace">0x00000000-0x0002FFFF</TD>
+    <TD style=3D"FONT-FAMILY: monospace">0x007F0000-0x007F7FFF</TD>
+    <TD style=3D"FONT-FAMILY: monospace">0x80000000</TD>
+    <TD style=3D"FONT-FAMILY: =
+monospace">0x81F00000</TD></TR></TBODY></TABLE>
+<P><SUP>1</SUP> Flash addresses are given as P2 (unchached) addresses =
+for ST40.=20
+<P><SUP>2 </SUP>RAM addresses are given as P1 (cached) addresses for =
+ST40.=20
+<H4>Code organization</H4>
+<P>The target-specific code is held in the following directories: </P>
+<TABLE>
+  <TBODY>
+  <TR>
+    <TD><TT>include/configs/&lt;board-config&gt;.h</TT></TD>
+    <TD>Board configuration header file</TD></TR>
+  <TR>
+    <TD><TT>board/&lt;board&gt;</TT></TD>
+    <TD>Board files</TD></TR>
+  <TR>
+    <TD><TT>cpu/&lt;cpu&gt;</TT> </TD>
+    <TD>CPU files </TD></TR>
+  <TR>
+    <TD><TT>cpu/&lt;cpu&gt;/&lt;soc&gt;</TT></TD>
+    <TD>SoC files</TD></TR>
+  <TR>
+    <TD><TT>lib_&lt;arch&gt;</TT></TD>
+    <TD>Architecture support files</TD></TR>
+  <TR>
+    <TD><TT>include/asm-&lt;arch&gt;</TT></TD>
+    <TD>Architecture headers</TD></TR></TBODY></TABLE>
+<P>The following example is for the Espresso board: </P>
+<TABLE>
+  <TBODY>
+  <TR>
+    <TD colSpan=3D2><TT>include/configs/espresso.h</TT></TD>
+    <TD>Board configuration header file</TD></TR>
+  <TR>
+    <TD colSpan=3D2><TT>board/espresso/</TT></TD>
+    <TD>Board-specific files</TD></TR>
+  <TR>
+    <TD width=3D"18%">&nbsp;</TD>
+    <TD vAlign=3Dtop><TT>config.mk</TT></TD>
+    <TD>Defines base address for U-boot in memory</TD></TR>
+  <TR>
+    <TD>&nbsp;</TD>
+    <TD vAlign=3Dtop><TT>espresso.c</TT></TD>
+    <TD>Board specific initialization</TD></TR>
+  <TR>
+    <TD>&nbsp;</TD>
+    <TD vAlign=3Dtop><TT>Makefile</TT></TD>
+    <TD>&nbsp;</TD></TR>
+  <TR>
+    <TD>&nbsp;</TD>
+    <TD vAlign=3Dtop><TT>sconsole.c</TT></TD>
+    <TD>Used if no physical serial port exists</TD></TR>
+  <TR>
+    <TD>&nbsp;</TD>
+    <TD vAlign=3Dtop><TT>sconsole.h</TT></TD>
+    <TD>&nbsp;</TD></TR>
+  <TR>
+    <TD>&nbsp;</TD>
+    <TD vAlign=3Dtop><TT>u-boot.lds</TT></TD>
+    <TD>Linker script</TD></TR>
+  <TR>
+    <TD>&nbsp;</TD>
+    <TD vAlign=3Dtop><TT>init-espresso.S</TT></TD>
+    <TD>Memory/SoC configuration table</TD></TR>
+  <TR>
+    <TD colSpan=3D2><TT>cpu/sh4_1xx</TT></TD>
+    <TD vAlign=3Dtop>CPU files</TD></TR>
+  <TR>
+    <TD>&nbsp;</TD>
+    <TD vAlign=3Dtop><TT>config.mk</TT></TD>
+    <TD>CPU make flags</TD></TR>
+  <TR>
+    <TD>&nbsp;</TD>
+    <TD vAlign=3Dtop><TT>cpu.c</TT></TD>
+    <TD>CPU functions</TD></TR>
+  <TR>
+    <TD>&nbsp;</TD>
+    <TD vAlign=3Dtop><TT>interrupts.c</TT></TD>
+    <TD rowSpan=3D2>Interrupt routines (not needed for sh4)</TD></TR>
+  <TR>
+    <TD>&nbsp;</TD>
+    <TD vAlign=3Dtop><TT>Makefile</TT></TD></TR>
+  <TR>
+    <TD>&nbsp;</TD>
+    <TD vAlign=3Dtop><TT>start.S</TT></TD>
+    <TD>Main CPU entry point</TD>
+  <TR>
+    <TD>&nbsp;</TD>
+    <TD vAlign=3Dtop><TT>init-st40common.S</TT></TD>
+    <TD>Common configuration code</TD></TR>
+  <TR>
+    <TD colSpan=3D2><TT>cpu/sh4_1xx/sti5528</TT></TD>
+    <TD>SoC files</TD></TR>
+  <TR>
+    <TD>&nbsp;</TD>
+    <TD vAlign=3Dtop><TT>Makefile</TT></TD>
+    <TD>&nbsp;</TD></TR>
+  <TR>
+    <TD>&nbsp;</TD>
+    <TD vAlign=3Dtop><TT>sti5528.c</TT></TD>
+    <TD>SoC specific functions (for example, reset)</TD></TR>
+  <TR>
+    <TD colSpan=3D2><TT>lib_sh4</TT></TD>
+    <TD vAlign=3Dtop>Architecture support files</TD>
+    <TD>&nbsp;</TD></TR>
+  <TR>
+    <TD>&nbsp;</TD>
+    <TD vAlign=3Dtop><TT>board.c</TT></TD>
+    <TD>Generic board initialization code</TD></TR>
+  <TR>
+    <TD>&nbsp;</TD>
+    <TD vAlign=3Dtop><TT>cacheops.S</TT></TD>
+    <TD>&nbsp;</TD></TR>
+  <TR>
+    <TD>&nbsp;</TD>
+    <TD vAlign=3Dtop><TT>io.c</TT></TD>
+    <TD>&nbsp;</TD></TR>
+  <TR>
+    <TD>&nbsp;</TD>
+    <TD vAlign=3Dtop><TT>io_generic.c</TT></TD>
+    <TD>&nbsp;</TD></TR>
+  <TR>
+    <TD>&nbsp;</TD>
+    <TD vAlign=3Dtop><TT>linkage.h</TT></TD>
+    <TD>&nbsp;</TD></TR>
+  <TR>
+    <TD>&nbsp;</TD>
+    <TD vAlign=3Dtop><TT>memchr.S</TT></TD>
+    <TD>&nbsp;</TD></TR>
+  <TR>
+    <TD>&nbsp;</TD>
+    <TD vAlign=3Dtop><TT>memcpy.S</TT></TD>
+    <TD>&nbsp;</TD></TR>
+  <TR>
+    <TD>&nbsp;</TD>
+    <TD vAlign=3Dtop><TT>memmove.S</TT></TD>
+    <TD>&nbsp;</TD></TR>
+  <TR>
+    <TD>&nbsp;</TD>
+    <TD vAlign=3Dtop><TT>memset.S</TT></TD>
+    <TD>&nbsp;</TD></TR>
+  <TR>
+    <TD>&nbsp;</TD>
+    <TD vAlign=3Dtop><TT>sh4_linux.c</TT></TD>
+    <TD>Code for booting sh4 linux kernel</TD></TR>
+  <TR>
+    <TD>&nbsp;</TD>
+    <TD vAlign=3Dtop><TT>strlen.S</TT></TD>
+    <TD>&nbsp;</TD></TR>
+  <TR>
+    <TD>&nbsp;</TD>
+    <TD vAlign=3Dtop><TT>time.c</TT></TD>
+    <TD>Generic code for reading TMU</TD></TR>
+  <TR>
+    <TD colSpan=3D2><TT>include/asm-sh4</TT></TD>
+    <TD>Architecture headers</TD></TR></TBODY></TABLE>
+<P>&nbsp;</P></DIV></DIV></BODY></HTML>
+
+------=_NextPart_000_0005_01CD0817.574804A0
+Content-Type: text/css;
+	charset="iso-8859-1"
+Content-Transfer-Encoding: quoted-printable
+Content-Location: http://www.stlinux.com/misc/print.css
+
+BODY {
+	BACKGROUND-COLOR: #fff; MARGIN: 1em
+}
+TH {
+	BORDER-BOTTOM: #ccc 1px solid; TEXT-ALIGN: left; COLOR: #006
+}
+TR.odd {
+	BACKGROUND-COLOR: #ddd
+}
+TR.even {
+	BACKGROUND-COLOR: #fff
+}
+TD {
+	PADDING-BOTTOM: 5px; PADDING-LEFT: 5px; PADDING-RIGHT: 5px; =
+PADDING-TOP: 5px
+}
+#menu {
+	VISIBILITY: hidden
+}
+#main {
+	MARGIN: 1em
+}
+
+------=_NextPart_000_0005_01CD0817.574804A0--

@@ -1,0 +1,70 @@
+---------------- RTOS Questions ---------------------------
+
+1. What is priority inversion ?
+2. What are the solutions for priority inversion ?
+3. What is priority inheritance ?
+4. What is priority ceiling ?
+5. What is deadlock ?
+6. What is the famous diners problem ?
+7. What is mutex ?
+8. What is spinlock ?
+9. Where are spinlocks used ?
+10. What do you mean by atomic operations ?
+11. what is a semaphore ?
+12. What are the types of semaphore ?
+13. What is binary semaphore ?
+14. What is a counting semaphore ?
+15. What is message queue ?
+16. What is the role of a scheduler ? How does it function ?
+17. What is the difference between a normal OS and RTOS ?
+18. What is preemption ?
+19. What is preemptive multi-tasking/time-sharing ? What is its difference with co-operative multi-tasking/time-sharing ?
+20. Threads are described as lightweight because switching between threads does not involve changing the memory context - True/False ?
+21.What are the factors considered for a RTOS selection ?
+22. What is the use of the method of temporarily masking / disabling interrupts ? When is it used ? What should be taken care while doing this method ?
+23. Since, disabling/masking of interrupts can be done whent the critical section is ONLY SHORT,What method can be used if the critical section is longer than few source lines or if it involves few lengthy loopings ?
+24. Difference between semaphores and disabling/masking of interrupts method ?
+25. Binary semaphore is equivalent to Mutex - True/False. How ?
+26. How can you avoid deadlocks incase of semaphore based designs ?
+27. What is Message passing method ? What is its advantages ?
+28. Tell about the design of Interrupt Handler and Scheduler in RTOS ?
+29. What is interrupt latency ?
+30. Even if we never enables interrupts in the code, the processor automatically disables them often during hardware access - True/False ? In this case how to reduce interrupt latency ?
+31. When should we re-enable the interrupts in an ISR and why ?
+32. How do you measure the latency of your system ?
+33. What are First Level Interrupt handlers and Second level Interrupt handlers ?
+34. What could be the typical design/implementation of FLIH and SLIH ?
+35. Reentrant interrupt handlers might cause a stack overflow from multiple preemptions by the same interrupt vector - True / False ?
+36. What kind of memory allocation procedure is good for embedded systems ?
+37. Is there any RTOS that has non-preemptive scheduling ?
+38. What is reentrant code ?
+39. What is preemptive multitasking ?
+40. What does timeslice refer to ?
+41. If the time slice is too short then the scheduler will consume too much of processing time - True / False
+42. What is I/O bound ? What is CPU bound ?
+43. What is non-preemptive multitasking ?
+44. CFS uses 'nanosecond' granularity accounting, the atomic units by which individual process share the CPU instead of previous notion of 'timeslice' - True/False .
+45. When will you use binary semaphore ?
+46. When will you choose busy-wait instead of context switch ?
+47. What are the possible scenarios in which context switching of threads can occur ?
+48. Can you use mutex/semaphore inside an ISR ?
+49. Explain a scenari that could cause deadlock ? What is the best solution for a deadlock ?
+50. Will the performance of your application improve if it has only a single thread and it is running on multiple cores of a processor ?
+51. What will happen if there are more threads requesting for CPU resource such as time ?
+52. What is Gang Scheduling and how is it useful ?
+53. Can you sleep in interrupt handler ?
+54. What is the main drawback for not considering Linux as realtime / RTOS ?
+55. What is the drawback in using semaphore for synchronization ? How does spinlock help in overcoming it ?
+56. What does a semaphore consist of ? and What does a spinlock consist of ?
+57. Why spinlocks are useless in uniprocessor systems ?
+58. What is timeslice ?
+59. What is the difference between multiprogramming and multiprocessing ?
+60. What is parallel programming ?
+61. What are the types of IPC mechanisms ?
+62. What are the types of synchronization problems and what are the resources that can cause such problems ?
+63. What is data race ?
+64. What is Indefinite Postponement / Indefinite blocking or starvation ?
+65. What are the synchronization relationships that are present in a multithreaded or mulitprogramming applications ?
+66. How Many Processes or Threads Are Enough for an application ?
+67. Tell the advantages and disadvantages of Co-operative multitasking.
+67. When should we use mutex and when should we use semaphore ?
